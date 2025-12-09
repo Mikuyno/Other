@@ -1,6 +1,7 @@
 function modExp(base, exp, mod) {
     let result = 1;
-    base = base % mod;
+    base = ((base % mod) + mod) % mod;
+    exp = Math.floor(exp);
     while (exp > 0) {
         if (exp % 2 === 1) {
             result = (result * base) % mod;
@@ -21,6 +22,7 @@ function calculateLegendreSymbol() {
     }
 
     const legendreSymbol = modExp(a, (p - 1) / 2, p);
+    legendreSymbol = ((legendreSymbol % p) + p) % p;
     let resultText;
 
     if (legendreSymbol === 1) {
@@ -28,7 +30,7 @@ function calculateLegendreSymbol() {
     } else if (legendreSymbol === p - 1) {
         resultText = `( ${a} / ${p} ) = -1 (a is a non-quadratic residue modulo p)`;
     } else {
-        resultText = `( ${a} / ${p} ) = 0 (a is congruent to 0 modulo p)`;
+        resultText = `( ${a} / ${p} ) = ${legendreSymbol} (unexpected remainder; ensure p is prime)`;
     }
 
     document.getElementById('result').innerText = resultText;
