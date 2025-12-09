@@ -1,4 +1,30 @@
+function isOddPrime(p)
+{
+    if (p < 3)
+    {
+        return false
+    }
+    else if (p % 2 ===0)
+    {
+        return false;
+    }
+    for (i=3; i<= p; i+=2)
+    {
+        if(p % i === 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+    
+
 function modExp(base, exp, mod) {
+    if (isOddPrime(mod) === false)
+    {
+        
+    }
+    
     let result = 1;
     base = ((base % mod) + mod) % mod;
     exp = Math.floor(exp);
