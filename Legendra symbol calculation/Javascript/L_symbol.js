@@ -21,7 +21,7 @@ function calculateLegendreSymbol() {
         return;
     }
 
-    const legendreSymbol = modExp(a, (p - 1) / 2, p);
+    legendreSymbol = modExp(a, (p - 1) / 2, p);
     legendreSymbol = ((legendreSymbol % p) + p) % p;
     let resultText;
 
