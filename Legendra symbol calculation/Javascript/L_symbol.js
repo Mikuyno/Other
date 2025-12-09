@@ -1,30 +1,25 @@
-function isOddPrime(p)
-{
-    if (p < 3)
-    {
+function isOddPrime(p) {
+    if (p < 3) {
         return false
     }
-    else if (p % 2 ===0)
-    {
+    else if (p % 2 === 0) {
         return false;
     }
-    for (i=3; i<= p; i+=2)
-    {
-        if(p % i === 0)
-        {
+    for (i = 3; i <= p; i += 2) {
+        if (p % i === 0) {
             return false;
         }
     }
     return true;
 }
-    
+
 
 function modExp(base, exp, mod) {
-    if (isOddPrime(mod) === false)
-    {
-        
+    if (isOddPrime(mod) === false) {
+        result = "Error: mod must be an odd prime.";
+        return result;
     }
-    
+
     let result = 1;
     base = ((base % mod) + mod) % mod;
     exp = Math.floor(exp);
