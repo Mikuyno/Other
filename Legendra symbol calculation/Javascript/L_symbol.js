@@ -1,16 +1,28 @@
+function clearResult() {
+    document.getElementById('result').innerText = "";
+    document.getElementById('p').value = "";
+    document.getElementById('a').value = "";
+}
+
 
 function variableErrors() {
     const pRaw = document.getElementById('p').value.trim();
     const aRaw = document.getElementById('a').value.trim();
     const intRegex = /^-?\d+$/;
     let errors = "";
-    if (!intRegex.test(pRaw)) {
+    if (pRaw === "") {
+        errors += "Error: no value for p.\n";
+    }
+    else if (!intRegex.test(pRaw)) {
         errors += "Error: p must be an integer.\n";
     }
     else if (!isOddPrime(Number.parseInt(pRaw, 10))) {
         errors += "Error: p must be an odd prime.\n";
     }
-    if (!intRegex.test(aRaw)) {
+    if (aRaw === "") {
+        errors += "Error: no value for a.\n";
+    }
+    else if (!intRegex.test(aRaw)) {
         errors += "Error: a must be an integer.\n";
     }
     return errors;
@@ -65,4 +77,3 @@ function calculateLegendreSymbol() {
 
     document.getElementById('result').innerText = resultText;
 }
-
