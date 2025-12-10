@@ -4,6 +4,10 @@ function clearResult() {
     document.getElementById('a').value = "";
 }
 
+function sanitizeP(el) {
+    el.value = el.value.replace(/\D/g, '').slice(0, 3);
+}
+
 
 function variableErrors() {
     const pRaw = document.getElementById('p').value.trim();
