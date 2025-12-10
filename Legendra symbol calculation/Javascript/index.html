@@ -15,7 +15,7 @@
     <label for="a">a:</label>
     <input type="number" id="a" value="0">
     <br>
-    <label for="p">p (<i>limited to primes under 1000 for performance reasons</i>):</label>
+    <label for="p">p (<i>limited to 5 digit primes for performance reasons</i>):</label>
     <input type="text" id="p" value="3" inputmode="numeric" maxlength="5" pattern="\d{1,5}" oninput="sanitizeP(this)">
     <br>
     <button onclick="calculateLegendreSymbol()">Calculate (a/p)</button> <button onclick="listResidues()">List All
