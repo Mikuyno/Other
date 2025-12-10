@@ -5,7 +5,7 @@ function clearResult() {
 }
 
 function sanitizeP(el) {
-    el.value = el.value.replace(/\D/g, '').slice(0, 3);
+    el.value = el.value.replace(/\D/g, '').slice(0, 5);
 }
 
 
