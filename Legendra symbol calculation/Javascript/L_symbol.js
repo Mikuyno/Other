@@ -77,3 +77,25 @@ function calculateLegendreSymbol() {
 
     document.getElementById('result').innerText = resultText;
 }
+
+function listResidues() {
+    const pRaw = document.getElementById('p').value.trim();
+    const errors = variableErrors();
+    if (errors) {
+        document.getElementById('result').innerText = errors;
+        return;
+    }
+    const p = Number.parseInt(pRaw, 10);
+    let residues = [];
+    let nonResidues = [];
+    for (let a = 1; a < p; a++) {
+        if (modExp(a, (p - 1) / 2, p) === 1) {
+            residues.push(a);
+        }
+        else if (modExp(a, (p - 1) / 2, p) === p - 1) {
+            nonResidues.push(a);
+        }
+    }
+    document.getElementById('result').innerText = `Quadratic residues modulo ${p}: ${residues.join(', ')} \nNon-quadratic residues modulo ${p}: ${nonResidues.join(', ')}`;
+
+}
