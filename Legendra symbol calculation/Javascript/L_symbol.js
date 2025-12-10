@@ -1,4 +1,5 @@
 
+
 function isOddPrime(p) {
     if (!Number.isInteger(p) || p < 3) return false;
     if (p % 2 === 0) return false;
@@ -21,13 +22,29 @@ function modExp(base, exp, mod) {
 }
 
 function calculateLegendreSymbol() {
-    const p = parseInt(document.getElementById('p').value, 10);
+    const pRaw = document.getElementById('p').value.trim();
+    const aRaw = document.getElementById('a').value.trim();
+
+    const intRegex = /^-?\d+$/;
+    if (!intRegex.test(pRaw) && !intRegex.test(aRaw)) {
+        document.getElementById('result').innerText = "Error: p and a must be integers.";
+        return;
+    }
+    if (!intRegex.test(pRaw)) {
+        document.getElementById('result').innerText = "Error: p must be an integer.";
+        return;
+    }
+    if (!intRegex.test(aRaw)) {
+        document.getElementById('result').innerText = "Error: a must be an integer.";
+        return;
+    }
+    const p = Number.parseInt(pRaw, 10);
     if (!isOddPrime(p)) {
         document.getElementById('result').innerText = "Error: p must be an odd prime.";
         return;
     }
 
-    let a = parseInt(document.getElementById('a').value, 10);
+    let a = Number.parseInt(aRaw, 10);
     if (!Number.isInteger(a)) {
         document.getElementById('result').innerText = "Error: a must be an integer.";
         return;
