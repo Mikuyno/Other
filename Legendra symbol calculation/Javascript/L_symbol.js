@@ -96,6 +96,5 @@ function listResidues() {
             nonResidues.push(a);
         }
     }
-    document.getElementById('result').innerText = `Quadratic residues modulo ${p}: ${residues.join(', ')} \nNon-quadratic residues modulo ${p}: ${nonResidues.join(', ')}`;
-
+    document.getElementById('result').innerText = `Quadratic residues modulo ${p}: ${residues.join(', ')} \n Quadratic non-residues modulo ${p}: ${nonResidues.join(', ')}`;
 }
